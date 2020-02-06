@@ -13,7 +13,7 @@ Tanto para estos selectores de _CSS3_ como para los selectores propios de **jQue
 
 Si ponemos esto con síntaxis de _jQuery_ nos quedará como en la siguiente imagen:
 
-![Iteracción - Selección - Acción](./img/iteracion_seleccion_accion.png)
+![Iteracción - Selección - Acción](img/iteraccion_seleccion_accion.png)
 
 Es entre las **""** donde nosotros incluiremos los selectores.
 
