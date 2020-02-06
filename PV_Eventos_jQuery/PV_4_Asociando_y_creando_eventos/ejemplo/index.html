@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Asociando y creando eventos</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+
+</head>
+
+<body>
+
+    <div>
+        <p><a href="http://google.es">VAMOS A GOOGLE</a></p>
+    </div>
+
+    <button id="add">Añadir otro párrafo</button><button id="disconnect">Desconectar evento</button>
+    <button id="go">Ir a Google</button>
+
+    <div class="output">
+        <p>Este es el primer párrafo</p>
+    </div>
+
+
+
+    <!-- Cuerpo del script en el que trabajaremos -->
+    <script>
+        // Cuando el documento esté listo $(document).ready(function() {});
+        $(function () {
+
+            //ASIGNACION DIRECTA Y DESCONEXIÓN
+            $("body").on("click", function (event) {
+                alert("Click en Body");
+            });
+
+            $("a").on("click", function (event) {
+                event.preventDefault();
+
+                alert("No voy a ningún lado" + ":DIRECTA");
+
+                //Evito que llega al body la propagación
+                //event.stopImmediatePropagation();
+            });
+
+            //Desconecto lo que he conectado con asignación directa
+            /*$("button#disconnect").on("click", function (event) {
+                $("body").off("click");
+                $("a").off("click");
+                
+            });*/
+
+            //ASIGNACIÓN DELEGADA Y DESCONEXIÓN
+            /*$("body").on("click", "a", function (event) {
+                event.preventDefault();
+
+                alert("No voy a ningún lado" + ":DELEGADA");
+
+                //Evito que llega al body la propagación
+                event.stopImmediatePropagation();
+            });*/
+
+            /*$("body").on("click", function (event) {
+                alert("Click en Body");
+            });*/
+
+            /*$("button#disconnect").on("click", function (event) {
+                $("body").off("click");
+                $("body").off("click", "a");
+            });*/
+
+
+            //Handler únicamente para los elements que ya EXISTEN (ASIGNACIÓN DIRECTA)
+            /*$("p").on("click", function (event) {
+                alert("Click en párrafo");
+                event.stopImmediatePropagation();
+            });*/
+
+            //Handler para los nuevos y los que voy a seguir usando
+            /*$("div.output").on("click", "p", function (event) {
+                alert("Click en párrafo- DELEGADA");
+                event.stopImmediatePropagation();
+            });*/
+
+            //Añadir párrafos únicamente
+            /*$("button#add").on("click", function (event) {
+                $("div.output").append("<p>Párrafo Nuevo</p>");
+                event.stopImmediatePropagation();
+            });*/
+
+
+            //Simulo hacer click en un enlace 
+            $("button#go").click(function (event) {
+                console.log("Evento capturado");
+                event.stopImmediatePropagation();
+                //$("a").eq(0).trigger(event); //Comportamiento por defecto. Bubbling
+                //$("a").eq(0).trigger("click");
+                //$("a").eq(0).triggerHandler("click");
+                $("a").eq(0).triggerHandler(event); //No comportamiento por defecto no bubbling
+            });
+        });
+
+    </script>
+</body>
+
+</html>

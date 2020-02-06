@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Plantilla Curso jQuery - OpenWebinars</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+
+    <!--Calculadora-->
+    <section id="calculadora">
+        <div>
+            <p>
+                <label for="op1">Operador 1</label>
+                <input id="op1" type="number" placeholder="operador1">
+            </p>
+            <p>
+                <label for="op2">Operador 2</label>
+                <input id="op2" type="number" placeholder="operador2">
+            </p>
+            <button value="+">+</button>
+            <button value="-">-</button>
+            <button value="*">*</button>
+            <button value="/">/</button>
+        </div>
+        <div>
+            <h4>El resultado de la operación es:<span></span></h4>
+        </div>
+    </section>
+
+    <!-- Tabla para buscar nombre -->
+    <section id="table">
+        <p>
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text" placeholder="nombre_a_buscar">
+        </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Alumno</th>
+                    <th>Examen 1</th>
+                    <th>Examen 2</th>
+                    <th>Examen 3</th>
+                    <th>Nota evaluación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pepe Pérez</td>
+                    <td>5</td>
+                    <td>4</td>
+                    <td>3</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Ana Ramírez</td>
+                    <td>6</td>
+                    <td>3</td>
+                    <td>5</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Rosa Torres</td>
+                    <td>9</td>
+                    <td>3</td>
+                    <td>9</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Sara Gallardo</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>6</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Cuadrado que se mueve-->
+    <section id="square">
+        <div id="hijo">
+
+        </div>
+    </section>
+
+    <section id="contextMenu">
+        <div>Opción1</div>
+        <div>Opción2</div>
+        <div>Opción3</div>
+        <div>Opción4</div>
+    </section>
+
+    <!-- Cuerpo del script en el que trabajaremos -->
+    <script>
+        // Cuando el documento esté listo $(document).ready(function() {});
+        $(function () {
+
+            //Funcionamiento de la calculadora
+            $("#calculadora button").on("click", function (event) {
+
+                let op = $(this).val();
+                let op1 = parseFloat($("#op1").val());
+                let op2 = parseFloat($("#op2").val());
+                let resultado;
+
+                switch (op) {
+                    case "+":
+                        resultado = op1 + op2;
+                        break;
+                    case "-":
+                        resultado = op1 - op2;
+                        break;
+                    case "*":
+                        resultado = op1 * op2;
+                        break;
+                    case "/":
+                        resultado = op1 / op2;
+                        break;
+                };
+
+                $("#calculadora h4 span").text(resultado);
+            });
+
+            /* Funcionamiento del cuadrado */
+            $("body").keydown(function (event) {
+                let keycode = event.which;
+                
+                switch (keycode) {
+                    case 37:
+                        $("#hijo").css("left", "-=10");
+                        break;
+                    case 38:
+                        $("#hijo").css("top", "-=10");
+                        break;
+                    case 39:
+                        $("#hijo").css("left", "+=10");
+                        break;
+                    case 40:
+                        $("#hijo").css("top", "+=10");
+                        break;
+                }
+            });
+
+            /* Funcionamiento de la tabla */
+            $("tr").mouseenter(function (event) {
+
+                let value = $("#table input#nombre").val();
+
+                $(this).is(":contains(" + value + ")")
+                    ? $(this).addClass("contains") : $(this).addClass("no-contains");
+            });
+
+
+            $("tr").mouseleave(function (event) {
+                $(this).prop("class", "");
+            });
+
+
+            /* Funcionamiento del menú contextual */
+            $("section#contextMenu").hide();
+
+            $("section#table").contextmenu(function (event) {
+                ;
+                event.preventDefault();
+                if (event.which == 3) {
+                    console.log("SIIII");
+                    $("section#contextMenu").css({
+                        "left": event.pageX,
+                        "top": event.pageY
+                    });
+                    $("section#contextMenu").toggle();
+                }
+            });
+
+            $("section#contextMenu").mouseleave(function (event) {
+                $(this).toggle();
+            })
+
+
+
+
+
+        });
+
+    </script>
+</body>
+
+</html>

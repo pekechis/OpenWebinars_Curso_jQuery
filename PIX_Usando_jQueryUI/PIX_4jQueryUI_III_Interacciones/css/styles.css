@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+.container,
+.container_dropable {
+  align-items: center;
+  display: flex;
+  height: 200px;
+  justify-content: space-evenly;
+  margin: 20px auto;
+  width: 80%;
+}
+
+.container_img {
+  border: 1px solid black;
+  height: 200px;
+  margin: 20px auto;
+  width: 80%;
+}
+
+.container_img img {
+  height: 100px;
+  width: 100px;
+}
+
+.container_img > * {
+  margin: 0px auto !important;
+}
+.container_dropable {
+  border: 1px solid black;
+  align-items: center;
+}
+
+.container div,
+.container_dropable div {
+  color: white;
+  height: 100px;
+  text-align: center;
+  width: 130px;
+}
+
+.rojo {
+  background-color: red;
+}
+
+.azul {
+  background-color: blue;
+}
+
+.verde {
+  background-color: green;
+}
+
+.rosa {
+  background-color: pink;
+}
+
+.amarillo {
+  background-color: yellow;
+}
+
+.container div.small_font {
+  font-size: 0.5rem;
+  height: 50px;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Plantilla Curso jQuery - OpenWebinars</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Alumno</th>
+                    <th>Examen 1</th>
+                    <th>Examen 2</th>
+                    <th>Examen 3</th>
+                    <th>Nota evaluación</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="name">Pepe Pérez</td>
+                    <td>5</td>
+                    <td>4</td>
+                    <td>3</td>
+                    <td class="grade"></td>
+                </tr>
+                <tr>
+                    <td class="name">Ana Ramírez</td>
+                    <td>6</td>
+                    <td>3</td>
+                    <td>5</td>
+                    <td class="grade"></td>
+                </tr>
+                <tr>
+                    <td class="name">Rosa Torres</td>
+                    <td>9</td>
+                    <td>3</td>
+                    <td>9</td>
+                    <td class="grade"></td>
+                </tr>
+                <tr>
+                    <td class="name">Sara Gallardo</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>6</td>
+                    <td class="grade"></td>
+                </tr>
+            </tbody>
+        </table>
+        <p>
+            <button id="find">SELECCIONAR PRIMERA COLUMNA - FIND</button>
+            <button id="filter">SELECCIONAR ULTIMA COLUMNA - FILTER</button>
+        </p>
+        <p>
+            <label>COLUMNA DE INICIO:</label>
+            <input id="start" type="number">
+            <label>COLUMNA FINAL:</label>
+            <input id="end" type="number">
+            <button id="slice">RANGO COLUMNAS</button>
+        </p>
+        <p>
+            <button id="reset">RESET</button>
+        </p>
+    </div>
+    <!-- Cuerpo del script en el que trabajaremos -->
+    <script>
+        // Cuando el documento esté listo $(document).ready(function() {});
+        $(function () {
+
+
+            $(".grade").on("click", function (event) {
+                let notas = 0;
+                let total = 0;
+
+                $(this).prevUntil(".name").each(function (index) {
+                    notas++;
+                    total += parseFloat($(this).text());
+                    console.log(index + "---->" + notas + "----" + total);
+                });
+
+                $(this).text(parseFloat(total) / parseFloat(notas));
+            });
+
+            $(".name").mouseenter(function (event) {
+                let nota = parseFloat($(this).siblings(".grade").text());
+
+                if (!isNaN(nota)) {
+                    console.log(nota);
+                    if (nota >= 5) {
+                        //Si lo hago con .parent() tengo problemas luego ya que uso los td
+                        $(this).nextAll().css("background-color", "green");
+                        $(this).css("background-color", "green");
+                    } else {
+                        $(this).nextAll().css("background-color", "red");
+                        $(this).css("background-color", "red");
+                    }
+                }
+
+            });
+
+            $(".name").mouseleave(function () {
+                $(this).nextAll().css("background-color", "white");
+                $(this).css("background-color", "white");
+            });
+
+            $("#find").click(function (event) {
+                $("table").find(".name").css({
+                    "background-color": "blue"
+                });
+            });
+
+            $("#filter").click(function (event) {
+                $("td").filter(":last-child").css({
+                    "background-color": "pink"
+                });
+            });
+
+            $("#slice").click(function (event) {
+                let start = parseInt($("#start").val());
+                let end = parseInt($("#end").val());
+                console.log(start + "----" + end);
+                $("tbody tr").each(function (index) {
+                    $(this).children().slice(start, end).css("background-color", "brown");
+                });
+            });
+
+            $("#reset").click(function (event) {
+                $("td").css("background-color", "white");
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>

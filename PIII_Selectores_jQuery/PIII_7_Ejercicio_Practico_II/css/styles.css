@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table,
+td,
+th {
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+
+th {
+  background-color: green;
+  color: white;
+  font-weight: bolder;
+}

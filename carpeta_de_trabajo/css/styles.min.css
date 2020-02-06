@@ -1,0 +1,396 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css?family=Bowlby+One+SC|Lato&display=swap");
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: #333;
+  font-family: "Lato", "san-serif";
+  margin: 0px;
+}
+
+h1 {
+  font-family: "Bowlby One SC", cursive;
+}
+
+h2 {
+  font-family: "Bowlby One SC", cursive;
+}
+
+h3 {
+  font-family: "Bowlby One SC", cursive;
+}
+
+h4 {
+  font-family: "Bowlby One SC", cursive;
+}
+
+h5 {
+  font-family: "Bowlby One SC", cursive;
+}
+
+h6 {
+  font-family: "Bowlby One SC", cursive;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  padding: 1rem;
+}
+
+thead tr {
+  background-color: #333;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+tbody tr {
+  border-bottom: 0.2rem solid #333;
+}
+tbody tr:nth-child(even) {
+  background-color: #b4b3b3;
+}
+tbody tr:nth-child(odd) {
+  background-color: #ddd;
+}
+
+tbody td {
+  font-size: 0.8rem;
+  padding: 0.5rem;
+}
+
+ul.iconized {
+  list-style-type: none;
+  margin: 0px;
+}
+ul.iconized li {
+  padding: 1rem;
+}
+
+/*Usando anidamiento crear la hoja de estilos para un menú */
+nav {
+  background-image: linear-gradient(to bottom, #000 0%, #666666 80%);
+  padding: 0.2rem;
+}
+nav ul li {
+  display: inline-block;
+  padding: 0.5rem;
+  position: relative;
+  color: #fff;
+}
+nav ul li ul {
+  display: none;
+}
+nav ul li:hover > ul {
+  display: block;
+  position: absolute;
+  left: 25%;
+  padding-left: 0px;
+  background-color: rgba(128, 128, 128, 0.5);
+}
+nav ul li:hover > ul li {
+  width: 100%;
+  padding: 0.5rem;
+}
+nav ul li:hover > ul li:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  color: #333;
+}
+nav ul li.active,
+nav ul li:hover {
+  font-weight: bolder;
+}
+nav ul li a {
+  text-decoration: none;
+}
+
+.row {
+  display: -webkit-box;
+  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+  display: -ms-flexbox;
+  /* TWEENER - IE 10 */
+  display: -webkit-flex;
+  /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.row > .col-1 {
+  flex: 0 0 12.5%;
+  max-width: 12.5%;
+}
+
+.row > .col-2 {
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+
+.row > .col-3 {
+  flex: 0 0 37.5%;
+  max-width: 37.5%;
+}
+
+.row > .col-4 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.row > .col-5 {
+  flex: 0 0 62.5%;
+  max-width: 62.5%;
+}
+
+.row > .col-6 {
+  flex: 0 0 75%;
+  max-width: 75%;
+}
+
+.row > .col-7 {
+  flex: 0 0 87.5%;
+  max-width: 87.5%;
+}
+
+.row > .col-8 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 576px) {
+  .row > .col-sm-1 {
+    flex: 0 0 12.5%;
+    max-width: 12.5%;
+  }
+
+  .row > .col-sm-2 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .row > .col-sm-3 {
+    flex: 0 0 37.5%;
+    max-width: 37.5%;
+  }
+
+  .row > .col-sm-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .row > .col-sm-5 {
+    flex: 0 0 62.5%;
+    max-width: 62.5%;
+  }
+
+  .row > .col-sm-6 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  .row > .col-sm-7 {
+    flex: 0 0 87.5%;
+    max-width: 87.5%;
+  }
+
+  .row > .col-sm-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  .row > .col-md-1 {
+    flex: 0 0 12.5%;
+    max-width: 12.5%;
+  }
+
+  .row > .col-md-2 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .row > .col-md-3 {
+    flex: 0 0 37.5%;
+    max-width: 37.5%;
+  }
+
+  .row > .col-md-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .row > .col-md-5 {
+    flex: 0 0 62.5%;
+    max-width: 62.5%;
+  }
+
+  .row > .col-md-6 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  .row > .col-md-7 {
+    flex: 0 0 87.5%;
+    max-width: 87.5%;
+  }
+
+  .row > .col-md-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .row > .col-lg-1 {
+    flex: 0 0 12.5%;
+    max-width: 12.5%;
+  }
+
+  .row > .col-lg-2 {
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
+
+  .row > .col-lg-3 {
+    flex: 0 0 37.5%;
+    max-width: 37.5%;
+  }
+
+  .row > .col-lg-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .row > .col-lg-5 {
+    flex: 0 0 62.5%;
+    max-width: 62.5%;
+  }
+
+  .row > .col-lg-6 {
+    flex: 0 0 75%;
+    max-width: 75%;
+  }
+
+  .row > .col-lg-7 {
+    flex: 0 0 87.5%;
+    max-width: 87.5%;
+  }
+
+  .row > .col-lg-8 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+.row > * {
+  padding: 1rem;
+}
+
+.container {
+  max-width: 95%;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+figure.card {
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+  display: inline-block;
+  padding: 1rem;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+}
+figure.card img {
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+figure.card figcaption {
+  font-size: 0.8rem;
+  margin: 0.5rem;
+  text-align: center;
+}
+
+form {
+  width: 100%;
+  padding: 1rem;
+}
+
+input,
+select,
+textarea,
+button {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  font-size: 1.2rem;
+}
+
+fieldset {
+  border: 0px;
+  padding: 0px;
+}
+
+.btn {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.2rem !important;
+  padding: 0.5rem;
+}
+.btn:hover {
+  box-shadow: 0.1rem 0.1rem #888 !important;
+}
+.btn:active {
+  color: white !important;
+}
+
+.btn-error {
+  background-color: #ff0000;
+  color: white;
+  font-weight: bolder;
+}
+
+.btn-warning {
+  background-color: #eff178;
+  color: white;
+  font-weight: bolder;
+}
+
+.btn-accepted {
+  background-color: #378a00;
+  color: white;
+  font-weight: bolder;
+}
+
+.btn-normal {
+  background-color: #006eff;
+  color: white;
+  font-weight: bolder;
+}
+
+.celda_destacada {
+  background-color: #ff0000;
+  color: white;
+}
+
+.nueva_clase {
+  font-size: 2rem;
+}

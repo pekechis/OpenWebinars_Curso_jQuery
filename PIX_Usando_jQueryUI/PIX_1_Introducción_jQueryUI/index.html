@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Introducción a jQuery UI</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!--
+        <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
+        <script src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    -->
+
+</head>
+
+<body>
+
+
+    <div>
+
+    </div>
+    <!-- Cuerpo del script en el que trabajaremos -->
+    <script>
+        // Cuando el documento esté listo $(document).ready(function() {});
+        $(function () {
+            $("div").draggable();
+            $("div").delay(5000).hide("explode", 1000);
+        });
+
+    </script>
+</body>
+
+</html>

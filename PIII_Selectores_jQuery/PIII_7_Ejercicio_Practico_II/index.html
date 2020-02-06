@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Plantilla Curso jQuery - OpenWebinars</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+
+</head>
+
+<body>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Alumno</th>
+                <th>Examen 1</th>
+                <th>Examen 2</th>
+                <th>Examen 3</th>
+                <th>Nota evaluación</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Pepe Pérez</td>
+                <td>5</td>
+                <td>10</td>
+                <td>3</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Ana Ramírez</td>
+                <td>6</td>
+                <td>3</td>
+                <td>5</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Rosa Torres</td>
+                <td>9</td>
+                <td>3</td>
+                <td>9</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Sara Gallardo</td>
+                <td>8</td>
+                <td>8</td>
+                <td>6</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Cuerpo del script en el que trabajaremos -->
+    <script>
+        // Cuando el documento esté listo $(document).ready(function() {});
+        $(function () {
+            var total = 0;
+            var numElementos = 3;
+
+
+            $("tbody tr").each(function (index) {
+
+                console.log("ÍNDICE" + "----->" + index);
+
+                let examen1 = $("tbody tr:nth-child(" + (index + 1) + ") td").eq(1).text();
+                console.log("Fila 1" + "-->" + examen1);
+                let examen2 = $("tbody tr:nth-child(" + (index + 1) + ") td").eq(2).text();
+                console.log("Fila 2" + "-->" + examen2);
+                let examen3 = $("tbody tr:nth-child(" + (index + 1) + ") td").eq(3).text();
+                console.log("Fila 3" + "-->" + examen3);
+
+                let total = (parseFloat(examen1) + parseFloat(examen2) + parseFloat(examen3)) / numElementos;
+
+                $("tbody tr:nth-child(" + (index + 1) + ") td").eq(4).text(total);
+
+                (total >= 5) ? $(this).css("color", "green") : $(this).css("color", "red");
+
+            });
+ 
+
+
+        });
+
+    </script>
+</body>
+
+</html>

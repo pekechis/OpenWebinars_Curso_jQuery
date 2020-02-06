@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Plantilla Curso jQuery - OpenWebinars</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+
+</head>
+
+<body>
+    
+    <p>
+        <h3>Lista de albums</h3>
+        <select>
+
+        </select>
+    </p>
+
+    <table>
+        <caption>Lista de posts</caption>
+        <thead>
+            <tr>
+                <th>userId</th>
+                <th>id</th>
+                <th>title</th>
+                <th>body</th>
+            <tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <div class="fotos">
+
+    </div>
+
+    <!-- Cuerpo del script en el que trabajaremos -->
+    <script>
+        // Cuando el documento esté listo $(document).ready(function() {});
+        $(function () {
+
+            $.ajax("https://jsonplaceholder.typicode.com/posts", {
+                dataType: 'json',
+                success: function (data) {
+                    for (i = 0; i < 20; i++) {
+                        $("tbody").append("<tr><td>" + data[i].userId + "</td>" +
+                            "<td>" + data[i].id + "</td>" +
+                            "<td>" + data[i].title + "</td>" +
+                            "<td>" + data[i].body + "</td>");
+                    }
+                },
+                error: function (jqXHR, texStatus, error) {
+                    alert("Error:" + texStatus + " " + error);
+                }
+
+            });
+
+            $.ajax("https://jsonplaceholder.typicode.com/albums", {
+                dataType: 'json',
+                success: function (data) {
+                    data.forEach(function (valor) {
+                        $("select").append("<option value='" + valor.id + "'>" + valor.title + "</option>");
+                    });
+                },
+                error: function (jqXHR, texStatus, error) {
+                    alert("Error:" + texStatus + " " + error);
+                }
+
+            });
+
+            $("select").change(function (event) {
+                $(".fotos").html("");
+
+                let album = $(this).val();
+                $.ajax("https://jsonplaceholder.typicode.com/photos?albumId=" + album, {
+                    dataType: 'json',
+                    success: function (data) {
+                        data.forEach(function (valor) {
+                            $(".fotos").append("<p/><img src='" + valor.thumbnailUrl + "'/></p>")
+                        });
+                    },
+                    error: function (jqXHR, texStatus, error) {
+                        alert("Error:" + texStatus + " " + error);
+                    }
+
+                });
+
+            });
+
+            //Evento DELEGADO
+            $("tbody").on('click', 'tr', function (event) {
+                let userId = $(this).children().eq(0).text();
+                $.ajax("https://jsonplaceholder.typicode.com/users?id=" + userId, {
+                    dataType: 'json',
+                    success: function (data) {
+                        alert(data[0].username + "--->" + data[0].email);
+                    },
+                    error: function (jqXHR, texStatus, error) {
+                        alert("Error:" + texStatus + " " + error);
+                    }
+
+                });
+            });
+
+
+        });
+
+    </script>
+</body>
+
+</html>

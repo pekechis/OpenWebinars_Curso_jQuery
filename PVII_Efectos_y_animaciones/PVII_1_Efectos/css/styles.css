@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  border-color: 5px solid black;
+  margin: 10px auto;
+  height: 300px;
+  width: 80%;
+}
+
+#elemento {
+  background-color: burlywood;
+  height: 150px;
+  width: 150px;
+}

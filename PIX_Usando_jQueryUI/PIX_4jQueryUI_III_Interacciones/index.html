@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!--
+        <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
+        <script src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    -->
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="rojo">
+            <h1>HOLA</h1>
+        </div>
+        <div class="azul">
+            <h1>HOLA</h1>
+        </div>
+        <div class="verde">
+            <h1>HOLA</h1>
+        </div>
+        <div class="amarillo">
+            <h1>HOLA</h1>
+        </div>
+        <div class="rosa">
+            <h1>HOLA</h1>
+        </div>
+    </div>
+    <div class="container_dropable">
+
+    </div>
+
+    <div class="container_img">
+        <img src="img/c1.jpg">
+    </div>
+
+
+
+    <!-- Cuerpo del script en el que trabajaremos -->
+    <script>
+        // Cuando el documento esté listo $(document).ready(function() {});
+        $(function () {
+
+            let caja1 = $(".container div").eq(0);
+            let caja2 = $(".container div").eq(1);
+            let caja3 = $(".container div").eq(2);
+            let caja4 = $(".container div").eq(3);
+            let caja5 = $(".container div").eq(4);
+
+
+
+            $(".container").sortable({
+                //Opción para que se resalte el hueco
+                placeholder: "ui-state-highlight"
+            });
+
+            $(".container_img img").resizable({
+                containment: "parent",
+                classes: {
+                    "center": "center"
+                }
+            });
+
+
+            $(".container div").draggable({
+                //Para poder hacer drag and sort a la vez
+                connectToSortable: ".container"
+            });
+
+            $(".container_dropable").droppable({
+                accept: ".container > div",
+                drop: function (event, ui) {
+                    //Le añado la clase de jQuery UI para resaltar
+                    $(this).addClass("ui-state-highlight");
+                    let elemento = ui.draggable;
+                    elemento.css("position", "static");
+                    $(this).append(elemento.clone());
+                    elemento.remove();
+                    console.log(ui);
+
+                }
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>

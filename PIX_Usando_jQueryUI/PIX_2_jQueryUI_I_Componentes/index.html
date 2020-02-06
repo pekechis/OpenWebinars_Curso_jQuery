@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Componentes</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!--
+        <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
+        <script src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    -->
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="menu">
+            <ul id="menu">
+                <li class="ui-state-disabled">
+                    <div>Big data</div>
+                </li>
+                <li>
+                    <div>Drupal</div>
+                </li>
+                <li>
+                    <div>Management</div>
+                </li>
+                <li>
+                    <div>Cloud Computing</div>
+                    <ul>
+                        <li class="ui-state-disabled">
+                            <div>Azure</div>
+                        </li>
+                        <li>
+                            <div>GCE</div>
+                        </li>
+                        <li>
+                            <div>AWS</div>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div>Certificaciones oficiales</div>
+                </li>
+                <li>
+                    <div>FrontEnd</div>
+                    <ul>
+                        <li>
+                            <div>JavaScript</div>
+                            <ul>
+                                <li>
+                                    <div>NodeJs</div>
+                                </li>
+                                <li>
+                                    <div>jQuery</div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <div>HTML</div>
+                            <ul>
+                                <li>
+                                    <div>BootStrap</div>
+                                </li>
+                                <li>
+                                    <div>CSS3</div>
+                                </li>
+                                <li>
+                                    <div>HTML5</div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <p>
+                <button id="showDialog">Mostrar Diálogo</button>
+            </p>
+        </div>
+        <div class="tabs">
+            <div id="tabs">
+                <ul>
+                    <li><a href="#tabs-1">Pestaña 1</a></li>
+                    <li><a href="#tabs-2">Pestaña 2</a></li>
+                    <li><a href="#tabs-3">Checkboxgroup</a></li>
+                    <li><a href="#tabs-4">Accordion</a></li>
+                </ul>
+                <div id="tabs-1">
+                    <p>
+                        <h1>Contenido de la pestaña 1</h1>
+                    </p>
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident accusantium excepturi fugiat
+                    eligendi enim ut odit perferendis doloremque praesentium quaerat cum delectus temporibus quia illo
+                    soluta neque, molestiae, totam id?
+                </div>
+                <div id="tabs-2">
+                    <p>
+                        <h1>Contenido de la pestaña 2</h1>
+                    </p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, consequuntur earum natus
+                    architecto, sed aperiam possimus debitis repudiandae maiores at aliquam alias! Eius nesciunt
+                    suscipit provident blanditiis et porro in.
+                </div>
+                <div id="tabs-3">
+                    <p>
+                        <h1>Contenido de la pestaña 3</h1>
+                    </p>
+                    <h2>Planes de suscripción</h2>
+                    <fieldset>
+                        <legend>Seleccionar un plan: </legend>
+                        <label for="radio-1">Plan Menual</label>
+                        <input type="radio" name="radio-1" id="radio-1">
+                        <label for="radio-2">Plan Anual</label>
+                        <input type="radio" name="radio-1" id="radio-2">
+                        <label for="radio-3">Cupón de descuento</label>
+                        <input type="radio" name="radio-1" id="radio-3">
+                    </fieldset>
+                </div>
+                <div id="tabs-4">
+                    <p>
+                        <h1>Contenido de la pestaña 4</h1>
+                    </p>
+                    <div id="accordion">
+                        <h3>Section 1</h3>
+                        <div>
+                            <p>
+                                Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
+                                ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
+                                amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
+                                odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
+                            </p>
+                        </div>
+                        <h3>Section 2</h3>
+                        <div>
+                            <p>
+                                Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+                                purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+                                velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+                                suscipit faucibus urna.
+                            </p>
+                        </div>
+                        <h3>Section 3</h3>
+                        <div>
+                            <p>
+                                Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+                                Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+                                ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+                                lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+                            </p>
+                            <ul>
+                                <li>List item one</li>
+                                <li>List item two</li>
+                                <li>List item three</li>
+                            </ul>
+                        </div>
+                        <h3>Section 4</h3>
+                        <div>
+                            <p>
+                                Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+                                et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+                                faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+                                mauris vel est.
+                            </p>
+                            <p>
+                                Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+                                Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+                                inceptos himenaeos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CUADRO MODAL-->
+    <div id="dialog-confirm" title="Cuadro MODAL con jQUERY UI">
+        <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>
+            Has visto lo fácil que es hacer componentes con jQueryUI</p>
+    </div>
+    <!-- Cuerpo del script en el que trabajaremos -->
+    <script>
+        // Cuando el documento esté listo $(document).ready(function() {});
+        $(function () {
+
+            //Aplicación de jQuery UI para mostrar los componentes
+            $("#menu").menu();
+            $("#tabs").tabs();
+            //Para que quepa en la pestaña sin problemas
+            $("#accordion").accordion({ heightStyle: "content" });
+            $("#tabs-3 input").checkboxradio();
+            $("#showDialog").button();
+            $("#dialog-confirm").dialog({
+                resizable: false,
+                autoOpen: false,
+                height: "auto",
+                width: 400,
+                modal: true,
+                buttons: {
+                    "Aceptar": function () {
+                        $(this).dialog("close");
+                    },
+                    Cancel: function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+
+
+            //Eventos jQuery Normales
+            $("#showDialog").click(function (event) {
+                //Llamada con parámetros al componente Diálogo
+                $("#dialog-confirm").dialog("open");
+            });
+        });
+
+    </script>
+</body>
+
+</html>

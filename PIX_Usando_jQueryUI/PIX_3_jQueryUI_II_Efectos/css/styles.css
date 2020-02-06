@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  height: 200px;
+  justify-content: space-evenly;
+  margin: 20px auto;
+  width: 80%;
+}
+
+.container div {
+  color: white;
+  height: 100px;
+  text-align: center;
+  width: 15%;
+}
+
+.rojo {
+  background-color: red;
+}
+
+.azul {
+  background-color: blue;
+}
+
+.verde {
+  background-color: green;
+}
+
+.rosa {
+  background-color: pink;
+}
+
+.amarillo {
+  background-color: yellow;
+}
+
+.container div.small_font {
+  font-size: 0.5rem;
+  height: 50px;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Parte VI - Ejercicio Práctico II </title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/font-awesome-4.7.0/css/font-awesome.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="origen">
+            <img src="img/apple.jpeg">
+            <img src="img/banana.png">
+            <img src="img/bread.png">
+            <img src="img/brocoli.jpeg">
+            <img src="img/lemon.png">
+            <img src="img/milk.png">
+            <img src="img/onion.png">
+            <img src="img/potato.png">
+            <img src="img/tomato.png">
+            <img src="img/water_mellon.png">
+        </div>
+        <div class="botones">
+            <p><button id="echar">Echar a la cesta</button></p>
+            <p><button id="vaciar">Vaciar Cesta</button></p>
+        </div>
+        <div class="destino">
+            <h2>Su cesta:<span>0</span><i class="fa fa-shopping-basket"></i></h2>
+
+        </div>
+    </div>
+    <!-- Cuerpo del script en el que trabajaremos -->
+    <script>
+        // Cuando el documento esté listo $(document).ready(function() {});
+        $(function () {
+            var frutas = [];
+            console.log(frutas.length);
+
+            $(".origen img").dblclick(function (event) {
+
+                frutas[frutas.length] = $(this).clone();
+                //Borrando los elementos del origen
+                //frutas[frutas.length] = $(this).detach();
+                $(".destino h2 span").text(frutas.length);
+            });
+
+            $("#echar").click(function (event) {
+                if (!frutas.length) {
+                    alert("Cesta Vacía");
+                } else {
+                    frutas.forEach(element =>
+                        $(".destino").children().last().after(element)
+                    );
+
+                    frutas = [];
+                    $(".destino h2 span").text(0);
+                }
+            });
+
+            $("#vaciar").click(function (event) {
+                $(".destino").children().slice(1).remove();
+            });
+
+
+        });
+
+    </script>
+</body>
+
+</html>

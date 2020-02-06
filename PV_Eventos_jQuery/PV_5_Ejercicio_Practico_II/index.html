@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Plantilla Curso jQuery - OpenWebinars</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Digital Frame</h1>
+        <div id="images">
+            <img src="./img/html_logo.png" />
+            <img src="./img/bootstrap-logo.jpg" />
+            <img src="./img/js.png" />
+        </div>
+        <div id="frame">
+            <div id="picture">
+                <div>
+                    <img src="./img/html_logo.png" />
+                </div>
+            </div>
+            <div id="zoom">
+                <img src="./img/zoom-in.png" />
+                <img src="./img/zoom-out.png" />
+            </div>
+            <div class="colors">
+                <div id="negro"></div>
+                <div id="rojo"></div>
+                <div id="azul"></div>
+                <div id="amarillo"></div>
+                <div id="verde"></div>
+                <div id="rosa"></div>
+            </div>
+            <a class="btn" href="">Añadir una nueva imagen</a>
+        </div>
+    </div>
+    <!-- Cuerpo del script en el que trabajaremos -->
+    <script>
+        // Cuando el documento esté listo $(document).ready(function() {});
+        $(function () {
+
+
+            //Asignación delegada de eventos de click a todas las imágenes
+            $("#images").on("click", "img", function (event) {
+                $("#picture img").attr("src", $(this).attr("src"));
+            });
+
+            //Asignación delegado de colores al marco
+            $(".colors").on("click", "div", function (event) {
+                $("#picture, #picture img").css("border-color", $(this).css("background-color"));
+            });
+
+            //Una sóla captura de eventos para los dos zooms
+            $("#zoom img").click(function (event) {
+                if ($(this).attr("src") == "./img/zoom-in.png") {
+                    $("#picture img").css({
+                        height: "+=20px",
+                        width: "+=20px"
+                    });
+                } else {
+                    $("#picture img").css({
+                        height: "-=20px",
+                        width: "-=20px"
+                    });
+                }
+            });
+
+            //Añadiendo una nuevo images
+            $(".btn").click(function (event) {
+                event.preventDefault();
+                $("#images").append("<img src='./img/jquery.gif'>");
+            });
+        });
+
+    </script>
+</body>
+
+</html>

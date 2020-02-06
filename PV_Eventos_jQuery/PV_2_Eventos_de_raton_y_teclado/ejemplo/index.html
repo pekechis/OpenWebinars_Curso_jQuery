@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eventos de ratón y teclado</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+    <h4>Diferencias entre keydown() y keyup()</h4>
+
+    <form>
+        <label>Nombre : </label>
+        <input id="elemento" type="text" />
+    </form>
+
+
+    <div id="keydownveces">
+        <p>El número de veces que se ha presionado keydown:<span>0</span></p>
+    </div>
+
+    <div id="keypressveces">
+        <p>El número de veces que se ha presionado keypress:<span>0</span></p>
+    </div>
+
+    <div id="teclakeydown">
+        <p>La tecla presionado con keydown:<span>-</span></p>
+    </div>
+
+    <div id="teclakeypress">
+        <p>La tecla presionado con keypress:<span>-</span></p>
+    </div>
+
+    <div class="zona">
+        <div class="hijo">
+
+        </div>
+    </div>
+
+    <p id="entrada1">
+        Número de entradas (mouseenter):<span>0</span>
+    </p>
+
+    <p id="entrada2">
+        Número de entradas (mouseover):<span>0</span>
+    </p>
+
+    <p id="salida1">
+        Número de salidas (mouseleave):<span>0</span>
+    </p>
+
+    <p id="salida2">
+        Número de salidas (mouseout):<span>0</span>
+    </p>
+
+
+    <!-- Cuerpo del script en el que trabajaremos -->
+    <script>
+        // Cuando el documento esté listo $(document).ready(function() {});
+        $(function () {
+            var keydownVeces = 0;
+            var keypressVeces = 0
+            var entrandoEL = 0;
+            var saliendoEL = 0;
+            var entrandoOO = 0;
+            var saliendoOO = 0;
+
+            $('#elemento').keydown(function (event) {
+                $('#keydownveces span').html(++keydownVeces);
+                $('#teclakeydown span').html(event.which);
+            });
+
+            $('#elemento').keypress(function (event) {
+                $('#keypressveces span').html(++keypressVeces);
+                $('#teclakeypress span').html(event.which);
+            });
+
+            $(".zona").mouseenter(function (event) {
+                $("p#entrada1 span").html(++entrandoEL);
+            });
+
+            $(".zona").mouseleave(function (event) {
+                $("p#salida1 span ").html(++saliendoEL);
+            });
+
+            $(".zona").mouseover(function (event) {
+                $("p#entrada2 span").html(++entrandoOO);
+            });
+
+            $(".zona").mouseout(function (event) {
+                $("p#salida2 span ").html(++saliendoOO);
+            });
+
+
+        });
+
+    </script>
+</body>
+
+</html>

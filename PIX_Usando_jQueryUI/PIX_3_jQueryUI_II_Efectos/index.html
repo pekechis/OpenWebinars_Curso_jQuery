@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!--
+        <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.min.css">
+        <script src="jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    -->
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="rojo">
+            <h1>HOLA</h1>
+        </div>
+        <div class="azul">
+            <h1>HOLA</h1>
+        </div>
+        <div class="verde">
+            <h1>HOLA</h1>
+        </div>
+        <div class="amarillo">
+            <h1>HOLA</h1>
+        </div>
+        <div class="rosa">
+            <h1>HOLA</h1>
+        </div>
+    </div>
+    <div class="container">
+        <p class="colores">
+            <input type="color">
+            <button>Seleccionar color</button>
+        </p>
+        <p class="efectos">
+            <select>
+                <option value="blind">Blind</option>
+                <option value="bounce">Bounce</option>
+                <option value="clip">Clip</option>
+                <option value="drop">Drop</option>
+                <option value="explode">Explode</option>
+                <option value="fade">Fade</option>
+                <option value="fold">Fold</option>
+                <option value="highlight">Highlight</option>
+                <option value="puff">Puff</option>
+                <option value="pulsate">Pulsate</option>
+                <option value="scale">Scale</option>
+                <option value="shake">Shake</option>
+                <option value="size">Size</option>
+                <option value="slide">Slide</option>
+            </select>
+        </p>
+    </div>
+
+
+    <!-- Cuerpo del script en el que trabajaremos -->
+    <script>
+        // Cuando el documento esté listo $(document).ready(function() {});
+        $(function () {
+
+            let caja1 = $(".container div").eq(0);
+            let caja2 = $(".container div").eq(1);
+            let caja3 = $(".container div").eq(2);
+            let caja4 = $(".container div").eq(3);
+            let caja5 = $(".container div").eq(4);
+
+
+            //Usando las funciones de clases para animar
+            //Tienen la misma síntaxis que con jQuery pero le añado la duración de la 
+            //Transición
+            $(".container div").click(function (event) {
+                //$(this).hasClass("small_font") ? $(this).removeClass("small_font", 1000)
+                //    : $(this).addClass("small_font", 1000);
+
+                //Sería lo mismo con toggleClass()
+                $(this).toggleClass("small_font",1000);
+                //$(this).switchClass() sirve para añadir y quitar a la vez
+
+            });
+
+
+            // Animación de colores
+            // Usando la misma función animate pero reconoce las propiedades de color
+            $(".colores button").on("click", function (event) {
+                let color = $("input[type='color']").val();
+                console.log(color);
+
+                $(".container:first div").animate({
+                    "background-color": color
+                }, 3000);
+            });
+
+            $(".efectos select").change(function (event) {
+
+                $(".container:first div").toggle($(this).val(), 2000);
+                //Sería el mismo funcionamiento para .hide()  .show()
+
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>
